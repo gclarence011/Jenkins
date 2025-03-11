@@ -1,10 +1,14 @@
+Jenkinsfile (Declarative Pipeline)
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'node:22.14.0-alpine3.21' } }
+    agent { docker { image 'python:3.13.2-alpine3.21' } }
+    environment {
+        PATH = "/usr/local.bin:$PATH"
+    }
     stages {
         stage('build') {
             steps {
-                sh 'node --version'
+                sh 'python --version'
             }
         }
     }
